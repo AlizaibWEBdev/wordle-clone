@@ -94,8 +94,10 @@
             text-transform: lowercase;
             margin-top: 10px;
         }
-
-        .popup-content .btn {
+        .replay{
+            display: none;
+        }
+        button {
             margin-top: 20px;
             padding: 10px 20px;
             background-color: #555;
@@ -111,3 +113,35 @@
             margin-bottom: 10px;
             font-size: 8vmax;
         }
+.popup-wrp{
+
+    width: 100vw;
+    height: 100vh;
+    background-color: #dbdbdba5;
+    z-index: 99999;
+    cursor: pointer;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popupLose{
+    background-color: #333;
+    padding: 20px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 300px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+#word{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 22px;
+}

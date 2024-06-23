@@ -11,6 +11,18 @@
 
 <body>
     <div class="main">
+       <div class="popup-wrp">
+        
+        <div class="popupLose">
+            <p>
+                you lose correct word was  <br>
+                <br>
+                <span id="word"></span>
+            </p>
+            <button onclick="handelOK()">ok</button>
+ 
+         </div>
+       </div>
         <div class="popup" id="popup">
             <div class="popup-content">
                 <p>Guess the 6-letter word!</p>
@@ -26,6 +38,7 @@
           
 
         </div>
+        <button class="btn replay"    id="action" onclick="replay()">Replay</button>
     </div>
 </body>
 

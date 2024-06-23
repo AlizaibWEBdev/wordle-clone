@@ -62,9 +62,27 @@ let randomeword = [
 
 
 let inputs = document.getElementsByTagName("input");
-let word = randomeword[Math.floor(Math.random() * 100 / 1)]
+let word = randomeword[Math.floor(Math.random() * 100 / 1)];
 
-function chekwin(to, letter) {
+
+function replay(){
+    for (let index = 0; index < inputs.length; index++) {
+        const element = inputs[index];
+        element.value = "";
+        element.style.background = "rgb(21, 11, 52)"
+
+    }
+    inputs[0].focus();
+    document.getElementById("action").style.display = "none"
+}
+
+function handelOK(){
+        document.getElementsByClassName("popup-wrp")[0].style.display="none"
+        document.getElementById("action").style.display = "block";
+        document.body.style.cursor = "pointer"
+
+}
+function chekwin(to) {
     let from = to - 5;
     let user = "";
     let gase = word.toLowerCase();
@@ -83,26 +101,24 @@ function chekwin(to, letter) {
 
     }
     if (user == word) {
-        let msg = confirm("you win");
-        if (msg) {
-            window.location.reload();
-        } else {
-            window.location.reload();
-        }
+       setTimeout(() => {
+        alert("you win");
+        document.getElementById("action").style.display = "block";
+        document.body.style.cursor = "pointer"
+       }, 500);
 
     }
-
+    console.log(to);
     if (to == 35 || to == 36) {
-        let msg = confirm("you lose");
-        if (msg) {
-            window.location.reload();
-        } else {
-            window.location.reload();
-        }
+        document.getElementById("word").innerText = word.toUpperCase();
+        setTimeout(() => {
+            document.getElementsByClassName("popup-wrp")[0].style.display="flex"
+        }, 500);
 
     }
 
 }
+
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.body.style.cursor = "none"
@@ -118,7 +134,7 @@ for (let index = 0; index < inputs.length; index++) {
         e.preventDefault();
         if (e.target.value !== " " && "abcdefghijklmnopqrstuvwxyz".includes(e.target.value.toLowerCase())) {
             last = e.target;
-            input.nextElementSibling.focus();
+            input.nextElementSibling?.focus();
             if ([5, 11, 17, 23, 29, 35].includes(index)) {
 
                 chekwin(index, e.key);
