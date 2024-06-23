@@ -114,22 +114,17 @@ for (let index = 0; index < inputs.length; index++) {
     const input = inputs[index];
 
 
-    input.addEventListener("keypress", (e) => {
+    input.addEventListener("input", (e) => {
         e.preventDefault();
+        if (e.target.value !== " " && "abcdefghijklmnopqrstuvwxyz".includes(e.target.value.toLowerCase())) {
+            last = e.target;
+            input.nextElementSibling.focus();
+            if ([5, 11, 17, 23, 29, 35].includes(index)) {
 
-        if (e.key !== " " && "abcdefghijklmnopqrstuvwxyz".includes(e.key.toLowerCase())) {
-            if (!parseInt(e.key)) {
-                e.target.value = e.key
-                last = e.target;
-                input.nextElementSibling.focus();
-
-                if ([5, 11, 17, 23, 29, 35].includes(index)) {
-
-                    chekwin(index, e.key);
-                }
-
-
+                chekwin(index, e.key);
             }
+        } else {
+            e.target.value = ""
         }
 
 
