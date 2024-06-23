@@ -73,7 +73,8 @@ function replay(){
 
     }
     inputs[0].focus();
-    document.getElementById("action").style.display = "none"
+    document.getElementById("action").style.display = "none";
+    word = randomeword[Math.floor(Math.random() * 100 / 1)];
 }
 
 function handelOK(){
